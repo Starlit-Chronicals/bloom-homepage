@@ -1,0 +1,23 @@
+{
+  "overview": "A cute pastel school start page with time-based greetings, live date/time, and quick-access links to all your school tools including Microsoft Office, Google apps, study tools, and social media — dark mode only with soft glowing accents.",
+  "features": [
+    "Time-aware greeting (morning/afternoon/evening) with gradient text",
+    "Live date and time display",
+    "Filter tabs to show only school apps or all apps",
+    "Google search bar",
+    "App icon cards for Microsoft, Google, Study, and Social tools",
+    "Real app favicons for all 16+ shortcuts",
+    "Soft pastel glows with dark background",
+    "Fredoka and Quicksand fonts"
+  ],
+  "category": "productivity",
+  "tags": [
+    "homepage",
+    "school",
+    "pastel",
+    "start-page",
+    "dark-mode",
+    "quick-access"
+  ],
+  "last_updated": "2026-05-04T11:51:42.862Z"
+}

@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/assets/fonts/Nunito.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-display: "Fredoka One", cursive;
+    --font-body: "Quicksand", sans-serif;
+    --font-mono: monospace;
+    --radius: 0.625rem;
+
+    --background: 0.12 0.01 280;
+    --foreground: 0.93 0.01 280;
+    --card: 0.16 0.02 280;
+    --card-foreground: 0.93 0.01 280;
+    --popover: 0.16 0.02 280;
+    --popover-foreground: 0.93 0.01 280;
+
+    --primary: 0.65 0.12 15;
+    --primary-foreground: 0.16 0.02 280;
+
+    --secondary: 0.62 0.1 280;
+    --secondary-foreground: 0.93 0.01 280;
+    --muted: 0.25 0.01 280;
+    --muted-foreground: 0.55 0.01 280;
+
+    --accent: 0.7 0.08 190;
+    --accent-foreground: 0.16 0.02 280;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.22 0.02 280;
+    --input: 0.22 0.02 280;
+    --ring: 0.65 0.12 15;
+
+    --chart-1: 0.65 0.22 40;
+    --chart-2: 0.6 0.12 185;
+    --chart-3: 0.4 0.07 227;
+    --chart-4: 0.83 0.19 84;
+    --chart-5: 0.77 0.19 70;
+
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.15 0 0;
+    --sidebar-primary: 0.35 0 0;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.95 0 0;
+    --sidebar-accent-foreground: 0.25 0 0;
+    --sidebar-border: 0.9 0 0;
+    --sidebar-ring: 0.35 0 0;
+  }
+
+  .dark {
+    --background: 0.12 0.01 280;
+    --foreground: 0.93 0.01 280;
+    --card: 0.16 0.02 280;
+    --card-foreground: 0.93 0.01 280;
+    --popover: 0.16 0.02 280;
+    --popover-foreground: 0.93 0.01 280;
+
+    --primary: 0.65 0.12 15;
+    --primary-foreground: 0.16 0.02 280;
+
+    --secondary: 0.62 0.1 280;
+    --secondary-foreground: 0.93 0.01 280;
+    --muted: 0.25 0.01 280;
+    --muted-foreground: 0.55 0.01 280;
+
+    --accent: 0.7 0.08 190;
+    --accent-foreground: 0.16 0.02 280;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.145 0 0;
+
+    --border: 0.22 0.02 280;
+    --input: 0.22 0.02 280;
+    --ring: 0.65 0.12 15;
+
+    --chart-1: 0.65 0.12 15;
+    --chart-2: 0.62 0.1 280;
+    --chart-3: 0.7 0.08 190;
+    --chart-4: 0.72 0.1 35;
+    --chart-5: 0.68 0.09 100;
+
+    --sidebar: 0.16 0.02 280;
+    --sidebar-foreground: 0.93 0.01 280;
+    --sidebar-primary: 0.65 0.12 15;
+    --sidebar-primary-foreground: 0.16 0.02 280;
+    --sidebar-accent: 0.22 0.02 280;
+    --sidebar-accent-foreground: 0.85 0.01 280;
+    --sidebar-border: 0.22 0.02 280;
+    --sidebar-ring: 0.65 0.12 15;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .font-fredoka {
+    font-family: "Fredoka One", cursive;
+  }
+  .font-quicksand {
+    font-family: "Quicksand", sans-serif;
+  }
+  .gradient-pink-to-orange {
+    background: linear-gradient(
+      135deg,
+      oklch(0.72 0.15 10) 0%,
+      oklch(0.78 0.14 40) 50%,
+      oklch(0.8 0.12 55) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .glow-container {
+    position: relative;
+    overflow: hidden;
+  }
+  .glow-ambient {
+    position: absolute;
+    inset: -100px;
+    background: radial-gradient(
+        circle at 15% 40%,
+        rgba(255, 105, 180, 0.25) 0%,
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 85% 75%,
+        rgba(100, 220, 255, 0.18) 0%,
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 50% 15%,
+        rgba(180, 100, 220, 0.15) 0%,
+        transparent 55%
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 30px rgba(255, 105, 180, 0.25);
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.5s ease forwards;
+  }
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+    opacity: 0;
+  }
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+    opacity: 0;
+  }
+  .animate-delay-300 {
+    animation-delay: 0.3s;
+    opacity: 0;
+  }
+  .animate-delay-400 {
+    animation-delay: 0.4s;
+    opacity: 0;
+  }
+  .animate-delay-500 {
+    animation-delay: 0.5s;
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up {
+    animation: none;
+    opacity: 1;
+  }
+  .card-hover {
+    transition: none;
+  }
+  .card-hover:hover {
+    transform: none;
+  }
+  .transition-smooth {
+    transition: none;
+  }
+  .animate-delay-100,
+  .animate-delay-200,
+  .animate-delay-300,
+  .animate-delay-400,
+  .animate-delay-500 {
+    opacity: 1;
+  }
+}
